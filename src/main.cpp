@@ -10,7 +10,7 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
 // Die Parameter sind (DIN, CLK, CS, Anzahl der Displays)
-LedControl lc=LedControl(12,11,10,1); 
+LedControl lc=LedControl(15,12,13,4); //D8=15, D6=12, D7=13
 
 void setup() {
   Serial.begin(115200);
