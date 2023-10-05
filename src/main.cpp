@@ -84,10 +84,10 @@ for(int x=0;x<8;x++) {
   //lc.setRow(0, 1, hours % 10, true);  // Zweite Ziffer der Stunden (mit Dezimalpunkt als Trenner)
   //lc.setRow(0, 2, minutes / 10, false); // Erste Ziffer der Minuten
   //lc.setRow(0, 3, minutes % 10, false); // Zweite Ziffer der Minuten
-  lc.setRow (0,0+x,zahl[minutes % 10, false] [0+x]);//Digit4
-  lc.setRow (1,0+x, zahl[ minutes / 10, false] [0+x]); // Digit3
-  lc.setRow (2,0+x, zahlD2_Doppelpunkt_an[hours % 10, true] [0+x]);
-  lc.setRow (3,0+x, zahl[hours / 10, false] [0+x]);// Digit1
+  lc.setRow (0,0+x,zahl[minutes % 10] [0+x]);//Digit4  Einerstelle der Minute
+  lc.setRow (1,0+x, zahl[ minutes / 10] [0+x]); // Digit3 Zehnerstelle der Minute
+  lc.setRow (2,0+x, zahl[hours % 10] [0+x]); //Digit2 Einerstelle der Stunde
+  lc.setRow (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
 
   }
     
