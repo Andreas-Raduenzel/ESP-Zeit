@@ -6,6 +6,10 @@
 const char* ssid = "FritzRa";
 const char* password = "07149590308496325159";
 
+unsigned long previousMillis = 0;
+const long interval = 1000;  // Interval to blink LED (in milliseconds)
+
+
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
@@ -89,6 +93,17 @@ for(int x=0;x<8;x++) {
   lc.setRow (2,0+x, zahl[hours % 10] [0+x]); //Digit2 Einerstelle der Stunde
   lc.setRow (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
 
+unsigned long currentMillis = millis();
+ if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+  lc.setLed(2,2,7,true);// Doppelpunkt 1 an
+  lc.setLed(2,5,7,true);// Doppelpunkt 2 an
+  delay(200);
+}else{
+  lc.setLed(2,2,7,false);// Doppelpunkt 1 aus
+  lc.setLed(2,5,7,false);// Doppelpunkt 2 aus
+}
   }
     
 }
