@@ -16,7 +16,7 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org");
 // Die Parameter sind (DIN, CLK, CS, Anzahl der Displays)
 LedControl lc=LedControl(15,12,13,4); //D8=15, D6=12, D7=13
 
-
+int tc;
 unsigned char  zahl [11][8] =  
                 {     {B01111110,B11111111,B10000001,B10000001,B11111111,B01111110,B00000000,B00000000},//0
                       {B00000000,B01000001,B11111111,B11111111,B00000001,B00000000,B00000000,B00000000},//1
@@ -89,10 +89,10 @@ for(int x=0;x<8;x++) {
   //lc.setRow(0, 1, hours % 10, true);  // Zweite Ziffer der Stunden (mit Dezimalpunkt als Trenner)
   //lc.setRow(0, 2, minutes / 10, false); // Erste Ziffer der Minuten
   //lc.setRow(0, 3, minutes % 10, false); // Zweite Ziffer der Minuten
-  lc.setRow (0,0+x,zahl[minutes % 10] [0+x]);//Digit4  Einerstelle der Minute
-  lc.setRow (1,0+x, zahl[ minutes / 10] [0+x]); // Digit3 Zehnerstelle der Minute
-  lc.setRow (2,0+x, zahl[hours % 10] [0+x]); //Digit2 Einerstelle der Stunde
-  lc.setRow (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
+  lc.setColumn (0,1+x, zahl[minutes % 10] [0+x]);//Digit4  Einerstelle der Minute
+  lc.setColumn (1,1+x, zahl[ minutes / 10] [0+x]); // Digit3 Zehnerstelle der Minute
+  lc.setColumn (2,0+x, zahl[hours % 10] [0+x]); //Digit2 Einerstelle der Stunde
+  lc.setColumn (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
 
 unsigned long currentMillis = millis();
  if (currentMillis - previousMillis >= interval) {
@@ -103,7 +103,7 @@ unsigned long currentMillis = millis();
   delay(200);
 }else{
   lc.setLed(2,2,7,false);// Doppelpunkt 1 aus
-  lc.setLed(2,5,7,false);// Doppelpunkt 2 aus
+  lc.setLed(2,5,7,false);// Doppelpunkt 2 aus 
 }
   }
     
