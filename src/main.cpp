@@ -14,7 +14,7 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
 // Die Parameter sind (DIN, CLK, CS, Anzahl der Displays)
-LedControl lc=LedControl(15,12,13,4); //D8=15, D6=12, D7=13 //  adss /// 
+LedControl lc=LedControl(15,12,13,4); //D8=15, D6=12, D7=13 
 
 int tc;
 unsigned char  zahl [11][8] =  
