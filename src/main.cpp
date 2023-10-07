@@ -70,17 +70,14 @@ void loop() {
 
 for(int x=0;x<8;x++) {
 
-
-
-  //lc.setRow(0, 0, hours / 10, false); // Erste Ziffer der Stunden
-  //lc.setRow(0, 1, hours % 10, true);  // Zweite Ziffer der Stunden (mit Dezimalpunkt als Trenner)
-  //lc.setRow(0, 2, minutes / 10, false); // Erste Ziffer der Minuten
-  //lc.setRow(0, 3, minutes % 10, false); // Zweite Ziffer der Minuten
   lc.setColumn (0,1+x, zahl[minutes % 10] [0+x]);//Digit4  Einerstelle der Minute
   lc.setColumn (1,1+x, zahl[ minutes / 10] [0+x]); // Digit3 Zehnerstelle der Minute
   lc.setColumn (2,0+x, zahl[hours % 10] [0+x]); //Digit2 Einerstelle der Stunde
-  lc.setColumn (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
-
+  //lc.setColumn (3,0+x, zahl[hours / 10] [0+x]);// Digit1 Zehnerstelle der Stunde
+  if (hours / 10==0){
+                                            lc.setColumn (3,0+x,zahl[10] [0+x]);//Digit1 alle LEDs aus
+                                            }else{lc.setColumn (3,0+x, zahl[hours / 10] [0+x]);// Digit1
+                                            }     
 unsigned long currentMillis = millis();
  if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
