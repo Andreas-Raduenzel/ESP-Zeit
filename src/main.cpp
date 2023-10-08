@@ -28,7 +28,7 @@ void setup() {
 
     for(int i=0;i<4;i++){
     lc.shutdown(i,false);
-    lc.setIntensity(i,4);
+    lc.setIntensity(i,5);
     lc.clearDisplay(i);
   }
   }
