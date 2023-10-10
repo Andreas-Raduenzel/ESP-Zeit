@@ -28,7 +28,7 @@ void setup() {
 
     for(int i=0;i<4;i++){
     lc.shutdown(i,false);
-    lc.setIntensity(i,5);
+    lc.setIntensity(i,1);
     lc.clearDisplay(i);
   }
   }
@@ -38,7 +38,10 @@ void setup() {
 
   // Initialisiere das MAX7219 Display
   lc.shutdown(0,false);  // Schalte den Energiesparmodus aus
-  lc.setIntensity(0,8);  // Setze die Helligkeit (0 min, 15 max)
+  lc.setIntensity(0,1);  // Setze die Helligkeit (0 min, 15 max)
+  lc.setIntensity(1,1);  // Setze die Helligkeit (0 min, 15 max)
+  lc.setIntensity(2,1);  // Setze die Helligkeit (0 min, 15 max)
+  lc.setIntensity(3,1);  // Setze die Helligkeit (0 min, 15 max)
   lc.clearDisplay(0);    // Lösche das Display
 }
 
